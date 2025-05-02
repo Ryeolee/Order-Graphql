@@ -1,5 +1,12 @@
 import { Field, ObjectType } from '@nestjs/graphql';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  Relation,
+} from 'typeorm';
+import { Order } from './Order';
 
 // GraphQL 스키마에서 객체 타입을 정의할 때 사용하는 데코레이터
 @ObjectType()
@@ -17,4 +24,7 @@ export class User {
   @Field(() => String)
   @Column()
   tier: string;
+
+  @OneToMany(() => Order, (order) => order.user)
+  orders: Relation<Order>[];
 }

@@ -1,5 +1,13 @@
 import { Field, ObjectType } from '@nestjs/graphql';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { User } from './User';
+import { Product } from './Product';
 
 @ObjectType()
 @Entity()
@@ -8,11 +16,25 @@ export class Order {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Field(() => Number)
-  @Column()
-  userId: number;
+  //   @Field(() => Number)
+  //   @Column('int', { name: 'user_id' })
+  //   userId: number;
 
-  @Field(() => Number)
-  @Column()
-  productId: number;
+  //   @Field(() => Number)
+  //   @Column('int', { name: 'product_id' })
+  //   productId: number;
+
+  @ManyToOne(() => User, (user) => user.orders, {
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
+  @JoinColumn([{ name: 'user_id', referencedColumnName: 'id' }])
+  user: User;
+
+  @ManyToOne(() => Product, (product) => product.orders, {
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
+  @JoinColumn([{ name: 'product_id', referencedColumnName: 'id' }])
+  product: Product;
 }
