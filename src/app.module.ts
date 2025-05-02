@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { UserService } from './service/User.Service';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { UserResolver } from './resolver/UserResolver';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeOrmConfig } from './config/typeorm.config';
+import { UserRepository } from './repository/UserRepository';
 
 @Module({
   imports: [
@@ -18,6 +18,6 @@ import { typeOrmConfig } from './config/typeorm.config';
     }),
   ],
   controllers: [],
-  providers: [UserResolver],
+  providers: [UserResolver, UserRepository, UserService],
 })
 export class AppModule {}
