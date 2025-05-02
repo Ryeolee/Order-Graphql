@@ -1,3 +1,30 @@
+
+
+## ERD
+
+![상품 주문 (1)](https://github.com/user-attachments/assets/820eee72-dc1b-4064-8828-12c48eddc6b7)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
