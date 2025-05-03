@@ -7,6 +7,7 @@ import {
   Relation,
 } from 'typeorm';
 import { Order } from './Order';
+import { ProductImage } from './ProductImage';
 
 @ObjectType()
 @Entity()
@@ -25,4 +26,7 @@ export class Product {
 
   @OneToMany(() => Order, (order) => order.product)
   orders: Relation<Order>[];
+
+  @OneToMany(() => ProductImage, (productImage) => productImage.product)
+  productImages: Relation<ProductImage>;
 }

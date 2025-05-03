@@ -2,6 +2,7 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { Delivery } from 'src/entity/Delivery';
 import { Order } from 'src/entity/Order';
 import { Product } from 'src/entity/Product';
+import { ProductImage } from 'src/entity/ProductImage';
 import { User } from 'src/entity/User';
 
 export const typeOrmConfig: TypeOrmModuleOptions = {
@@ -11,6 +12,6 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   username: 'root',
   password: 'cn37rqww@',
   database: 'order',
-  entities: [User, Order, Product, Delivery],
+  entities: [User, Order, Product, Delivery, ProductImage],
   synchronize: true,
 };
