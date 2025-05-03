@@ -2,6 +2,12 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Product {
+  id: Float!
+  name: String!
+  category: String!
+}
+
 type User {
   id: Float!
   nickname: String!
@@ -10,6 +16,7 @@ type User {
 
 type Query {
   findUsers: [User!]!
+  findProducts: [Product!]!
 }
 
 type Mutation {

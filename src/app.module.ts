@@ -12,6 +12,9 @@ import { configuration } from './config/configuration';
 import { OrderRepository } from './repository/OrderRepository';
 import { OrderService } from './service/Order.Service';
 import { OrderResolver } from './resolver/OrderResolver';
+import { ProductResolver } from './resolver/ProductResolver';
+import { ProductService } from './service/Product.Service';
+import { ProductRepository } from './repository/ProductRepository';
 
 @Module({
   imports: [
@@ -38,6 +41,9 @@ import { OrderResolver } from './resolver/OrderResolver';
     OrderResolver,
     OrderRepository,
     OrderService,
+    ProductResolver,
+    ProductService,
+    ProductRepository,
   ],
 })
 export class AppModule {}
