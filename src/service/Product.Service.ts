@@ -8,13 +8,7 @@ export class ProductService {
   constructor(private readonly productRepository: ProductRepository) {}
 
   async findProducts() {
-    const products: ProductInformationType[] = (await this.productRepository.findProducts()).map(
-      (product) => ({
-        ...product,
-        productImages: product.getProductImages(),
-      }),
-    );
-    console.log(products);
+    const products: ProductInformationType[] = await this.productRepository.findProducts();
     return products;
   }
 }
