@@ -9,6 +9,8 @@ export class ProductRepository extends Repository<Product> {
   }
 
   async findProducts() {
-    return this.find();
+    return this.find({
+      relations: ['productImages'],
+    });
   }
 }

@@ -2,10 +2,9 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Product {
+type ProductImage {
   id: Float!
-  name: String!
-  category: String!
+  image: String!
 }
 
 type User {
@@ -14,9 +13,16 @@ type User {
   tier: String!
 }
 
+type ProductInformationDto {
+  id: Float!
+  name: String!
+  category: String!
+  productImages: [ProductImage!]!
+}
+
 type Query {
   findUsers: [User!]!
-  findProducts: [Product!]!
+  findProducts: [ProductInformationDto!]!
 }
 
 type Mutation {

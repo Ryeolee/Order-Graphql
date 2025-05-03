@@ -1,11 +1,5 @@
 import { Field, ObjectType } from '@nestjs/graphql';
-import {
-  Column,
-  Entity,
-  OneToMany,
-  PrimaryGeneratedColumn,
-  Relation,
-} from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn, Relation } from 'typeorm';
 import { Order } from './Order';
 import { ProductImage } from './ProductImage';
 
@@ -28,5 +22,9 @@ export class Product {
   orders: Relation<Order>[];
 
   @OneToMany(() => ProductImage, (productImage) => productImage.product)
-  productImages: Relation<ProductImage>;
+  productImages: Relation<ProductImage[]>;
+
+  getProductImages() {
+    return this.productImages;
+  }
 }
