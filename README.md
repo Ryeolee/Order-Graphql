@@ -6,6 +6,9 @@
 
 
 
+## Stack
+  1.GraphQL<br/>
+  2.TypeOrm
 
 
 
@@ -15,8 +18,7 @@
 
 
 
-
-
+<br/><br/><br/><br/>
 
 
 
