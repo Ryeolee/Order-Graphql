@@ -11,3 +11,11 @@ type User {
 type Query {
   findUsers: [User!]!
 }
+
+type Mutation {
+  createUser(createUser: UserCreateDto!): Boolean!
+}
+
+input UserCreateDto {
+  nickname: String!
+}
