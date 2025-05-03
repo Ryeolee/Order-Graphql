@@ -24,7 +24,7 @@
 |--------------------------|------------------------------|------------|
 | `users`                  | 모든 유저 조회               | `query { users { id name email } }` |
 | `userOrders(userId: ID)` | 특정 유저의 주문 내역 조회   | `query { userOrders(userId: 1) { id product { name } } }` |
-| `products`               | 전체 상품 조회               | `query { products { id name price } }` |
+| `products`               | 전체 상품 조회               | `query{findProducts {id name category productImages { id image } }}` |
 
 
 
