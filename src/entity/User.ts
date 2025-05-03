@@ -1,11 +1,5 @@
 import { Field, ObjectType } from '@nestjs/graphql';
-import {
-  Column,
-  Entity,
-  OneToMany,
-  PrimaryGeneratedColumn,
-  Relation,
-} from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn, Relation } from 'typeorm';
 import { Order } from './Order';
 import { Tier } from 'src/enum/Tier';
 
@@ -13,6 +7,9 @@ import { Tier } from 'src/enum/Tier';
 @ObjectType()
 @Entity()
 export class User {
+  constructor(nickname: string) {
+    this.nickname = nickname;
+  }
   // 필드 타입
   @Field(() => Number)
   @PrimaryGeneratedColumn()
@@ -28,4 +25,8 @@ export class User {
 
   @OneToMany(() => Order, (order) => order.user)
   orders: Relation<Order>[];
+
+  static createUser(nickname: string) {
+    return new User(nickname);
+  }
 }

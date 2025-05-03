@@ -11,4 +11,8 @@ export class UserRepository extends Repository<User> {
   async findUsers() {
     return this.find();
   }
+
+  async createUser(user: User) {
+    this.save(user);
+  }
 }

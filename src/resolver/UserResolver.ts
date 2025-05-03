@@ -1,6 +1,6 @@
-import { Query, Resolver } from '@nestjs/graphql';
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { UserCreateDto } from 'src/dto/UserCreateDto';
 import { User } from 'src/entity/User';
-import { UserRepository } from 'src/repository/UserRepository';
 import { UserService } from 'src/service/User.Service';
 
 // User 타입을 위한 GraphQL 리졸버임을 나타냅니다.
@@ -14,5 +14,11 @@ export class UserResolver {
   async findUsers(): Promise<User[]> {
     const users = await this.userService.findUsers();
     return users;
+  }
+
+  @Mutation(() => Boolean)
+  async createUser(@Args('createUser') createUserDto: UserCreateDto): Promise<boolean> {
+    await this.userService.createUser(createUserDto);
+    return true; // 단순 성공 여부를 반환
   }
 }
