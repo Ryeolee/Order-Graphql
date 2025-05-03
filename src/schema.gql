@@ -7,10 +7,23 @@ type ProductImage {
   image: String!
 }
 
+type Delivery {
+  id: Float!
+  status: String!
+  orderId: Float!
+}
+
 type User {
   id: Float!
   nickname: String!
   tier: String!
+}
+
+type OrderInformationDto {
+  id: Float!
+  userId: Float!
+  productId: Float!
+  deliverys: [Delivery!]!
 }
 
 type ProductInformationDto {
@@ -22,6 +35,7 @@ type ProductInformationDto {
 
 type Query {
   findUsers: [User!]!
+  findOrders(userId: Float!): [OrderInformationDto!]!
   findProducts: [ProductInformationDto!]!
 }
 

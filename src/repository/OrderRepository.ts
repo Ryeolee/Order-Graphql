@@ -11,4 +11,13 @@ export class OrderRepository extends Repository<Order> {
   async createOrder(order: Order) {
     this.save(order);
   }
+
+  async findOrders(userId: number) {
+    return this.find({
+      where: {
+        userId: userId,
+      },
+      relations: ['deliverys'],
+    });
+  }
 }

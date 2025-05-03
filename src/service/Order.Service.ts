@@ -11,4 +11,9 @@ export class OrderService {
     const order = Order.createOrder(orderCreate.getUserId(), orderCreate.getProductId());
     await this.orderRepository.createOrder(order);
   }
+
+  async findOrders(userId: number) {
+    const orders = await this.orderRepository.findOrders(userId);
+    return orders;
+  }
 }

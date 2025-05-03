@@ -22,7 +22,7 @@ export class Delivery {
   status: string;
 
   @Field(() => Number)
-  @Column()
+  @Column({ name: 'order_id' })
   orderId: number;
 
   @ManyToOne(() => Order, (order) => order.deliverys, {

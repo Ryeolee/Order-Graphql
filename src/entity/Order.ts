@@ -46,7 +46,7 @@ export class Order {
   product: Product;
 
   @OneToMany(() => Delivery, (delivery) => delivery.order)
-  deliverys: Relation<Delivery>;
+  deliverys: Relation<Delivery[]>;
 
   static createOrder(userId: number, productId: number) {
     return new Order(userId, productId);
