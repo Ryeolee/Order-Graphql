@@ -1,3 +1,31 @@
+## 🛠️ Stack
+
+| 기술 스택      | 설명                                      |
+|----------------|-------------------------------------------|
+| ⚡ **GraphQL**  | 클라이언트가 필요한 데이터만 요청할 수 있는 쿼리 언어 |
+| 🏗 **TypeORM**  | TypeScript 기반의 ORM으로 DB 모델링 및 쿼리 수행 |
+| 🌀 **TypeScript** | JavaScript에 타입을 부여한 언어로 안정성과 가독성 향상 |
+| 🚀 **NestJS**   | 강력한 DI 기반의 Node.js 백엔드 프레임워크 |
+| 🗄 **MySQL**     | 관계형 데이터베이스 시스템, 구조적 데이터 저장 |
+
+
+## 📡 API 제공 내역 (GraphQL 기준)
+
+### 🛠 Mutation
+
+| 이름          | 설명           | 예시 호출 |
+|---------------|----------------|------------|
+| `signUp`      | 회원 가입       | `mutation { signUp(input: SignUpInput): User }` |
+| `createOrder` | 주문 생성       | `mutation { createOrder(input: CreateOrderInput): Order }` |
+
+### 🔍 Query
+
+| 이름                     | 설명                         | 예시 호출 |
+|--------------------------|------------------------------|------------|
+| `users`                  | 모든 유저 조회               | `query { users { id name email } }` |
+| `userOrders(userId: ID)` | 특정 유저의 주문 내역 조회   | `query { userOrders(userId: 1) { id product { name } } }` |
+| `products`               | 전체 상품 조회               | `query { products { id name price } }` |
+
 
 
 ## ERD
@@ -5,10 +33,6 @@
 ![상품 주문 (1)](https://github.com/user-attachments/assets/820eee72-dc1b-4064-8828-12c48eddc6b7)
 
 
-
-## Stack
-  1.GraphQL<br/>
-  2.TypeOrm
 
 
 
@@ -21,39 +45,6 @@
 <br/><br/><br/><br/>
 
 
-
-
-
-
-
-
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 ## Installation
 
@@ -86,16 +77,6 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
 
 ## License
 
