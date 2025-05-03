@@ -15,17 +15,21 @@ import { Delivery } from './Delivery';
 @ObjectType()
 @Entity()
 export class Order {
+  constructor(userId: number, productId: number) {
+    this.userId = userId;
+    this.productId = productId;
+  }
   @Field(() => Number)
   @PrimaryGeneratedColumn()
   id: number;
 
-  //   @Field(() => Number)
-  //   @Column('int', { name: 'user_id' })
-  //   userId: number;
+  @Field(() => Number)
+  @Column('int', { name: 'user_id' })
+  userId: number;
 
-  //   @Field(() => Number)
-  //   @Column('int', { name: 'product_id' })
-  //   productId: number;
+  @Field(() => Number)
+  @Column('int', { name: 'product_id' })
+  productId: number;
 
   @ManyToOne(() => User, (user) => user.orders, {
     onDelete: 'CASCADE',
@@ -43,4 +47,8 @@ export class Order {
 
   @OneToMany(() => Delivery, (delivery) => delivery.order)
   deliverys: Relation<Delivery>;
+
+  static createOrder(userId: number, productId: number) {
+    return new Order(userId, productId);
+  }
 }

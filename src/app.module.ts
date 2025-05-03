@@ -9,6 +9,9 @@ import { getTypeOrmConfig } from './config/typeorm.config';
 import { UserRepository } from './repository/UserRepository';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { configuration } from './config/configuration';
+import { OrderRepository } from './repository/OrderRepository';
+import { OrderService } from './service/Order.Service';
+import { OrderResolver } from './resolver/OrderResolver';
 
 @Module({
   imports: [
@@ -28,6 +31,13 @@ import { configuration } from './config/configuration';
     }),
   ],
   controllers: [],
-  providers: [UserResolver, UserRepository, UserService],
+  providers: [
+    UserResolver,
+    UserRepository,
+    UserService,
+    OrderResolver,
+    OrderRepository,
+    OrderService,
+  ],
 })
 export class AppModule {}

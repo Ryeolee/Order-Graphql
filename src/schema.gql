@@ -14,8 +14,14 @@ type Query {
 
 type Mutation {
   create(createUser: UserCreateDto!): Boolean!
+  createOrder(createOrder: OrderCreateDto!): Boolean!
 }
 
 input UserCreateDto {
   nickname: String!
+}
+
+input OrderCreateDto {
+  userId: Float!
+  productId: Float!
 }
