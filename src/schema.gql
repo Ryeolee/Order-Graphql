@@ -13,7 +13,7 @@ type Query {
 }
 
 type Mutation {
-  createUser(createUser: UserCreateDto!): Boolean!
+  create(createUser: UserCreateDto!): Boolean!
 }
 
 input UserCreateDto {

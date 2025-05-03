@@ -16,9 +16,9 @@ export class UserResolver {
     return users;
   }
 
-  @Mutation(() => Boolean)
+  @Mutation(() => Boolean, { name: 'create' })
   async createUser(@Args('createUser') createUserDto: UserCreateDto): Promise<boolean> {
     await this.userService.createUser(createUserDto);
-    return true; // 단순 성공 여부를 반환
+    return true;
   }
 }
