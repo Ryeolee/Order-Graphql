@@ -1,14 +1,13 @@
 import { Injectable } from '@nestjs/common';
-import { Product } from 'src/entity/Product';
+import { ProductInformationDto } from 'src/dto/ProductInformationDto';
 import { ProductRepository } from 'src/repository/ProductRepository';
-import { ProductInformationType } from 'src/types/ProductInformationType';
 
 @Injectable()
 export class ProductService {
   constructor(private readonly productRepository: ProductRepository) {}
 
   async findProducts() {
-    const products: ProductInformationType[] = await this.productRepository.findProducts();
+    const products: ProductInformationDto[] = await this.productRepository.findProducts();
     return products;
   }
 }
