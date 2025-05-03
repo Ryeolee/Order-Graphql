@@ -4,7 +4,9 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
+  Relation,
 } from 'typeorm';
 import { User } from './User';
 import { Product } from './Product';
@@ -39,10 +41,6 @@ export class Order {
   @JoinColumn([{ name: 'product_id', referencedColumnName: 'id' }])
   product: Product;
 
-  @ManyToOne(() => Delivery, (delivery) => delivery.orders, {
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE',
-  })
-  @JoinColumn([{ name: 'delivery_id', referencedColumnName: 'id' }])
-  delivery: Delivery;
+  @OneToMany(() => Delivery, (delivery) => delivery.order)
+  deliverys: Relation<Delivery>;
 }

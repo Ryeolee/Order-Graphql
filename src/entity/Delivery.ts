@@ -2,6 +2,8 @@ import { Field, ObjectType } from '@nestjs/graphql';
 import {
   Column,
   Entity,
+  JoinColumn,
+  ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
   Relation,
@@ -23,6 +25,10 @@ export class Delivery {
   @Column()
   orderId: number;
 
-  @OneToMany(() => Order, (order) => order.delivery)
-  orders: Relation<Order>;
+  @ManyToOne(() => Order, (order) => order.deliverys, {
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
+  @JoinColumn([{ name: 'order_id', referencedColumnName: 'id' }])
+  order: Order;
 }
