@@ -1,14 +1,18 @@
+// src/config/typeorm.config.ts
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import * as path from 'path'; // path 모듈을 이렇게 임포트해야 합니다.
+import { ConfigService } from '@nestjs/config';
+import * as path from 'path';
 
-export const typeOrmConfig: TypeOrmModuleOptions = {
+export const getTypeOrmConfig = (
+  configService: ConfigService,
+): TypeOrmModuleOptions => ({
   type: 'mysql',
-  host: 'localhost',
-  port: 3306,
-  username: 'root',
-  password: 'cn37rqww@',
-  database: 'order',
+  host: configService.get<string>('database.host'),
+  port: configService.get<number>('database.port'),
+  username: configService.get<string>('database.username'),
+  password: configService.get<string>('database.password'),
+  database: configService.get<string>('database.schema'),
   entities: [path.join(__dirname, '/../**/entity/*{.ts,.js}')],
   synchronize: true,
   autoLoadEntities: true,
-};
+});
