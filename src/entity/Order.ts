@@ -8,6 +8,7 @@ import {
 } from 'typeorm';
 import { User } from './User';
 import { Product } from './Product';
+import { Delivery } from './Delivery';
 
 @ObjectType()
 @Entity()
@@ -37,4 +38,11 @@ export class Order {
   })
   @JoinColumn([{ name: 'product_id', referencedColumnName: 'id' }])
   product: Product;
+
+  @ManyToOne(() => Delivery, (delivery) => delivery.orders, {
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
+  @JoinColumn([{ name: 'delivery_id', referencedColumnName: 'id' }])
+  delivery: Delivery;
 }

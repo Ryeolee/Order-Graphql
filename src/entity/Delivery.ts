@@ -1,5 +1,12 @@
 import { Field, ObjectType } from '@nestjs/graphql';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  Relation,
+} from 'typeorm';
+import { Order } from './Order';
 
 @ObjectType()
 @Entity()
@@ -15,4 +22,7 @@ export class Delivery {
   @Field(() => Number)
   @Column()
   orderId: number;
+
+  @OneToMany(() => Order, (order) => order.delivery)
+  orders: Relation<Order>;
 }
